@@ -39,10 +39,10 @@ class BinarySearchTree{
    
    /**
     * This method prints the values contained in the binary serach tree, starting from the given node, in a pre-order sequence.
-    * @param root The starting root in the tree.
+    * @param root The given node from previous method call
     */
    public void preOrderTraversal(Node root){
-      //implement me
+      if (root == null) return;
       System.out.print(root.value + " ");
       if (root.left != null) preOrderTraversal(root.left);
       if (root.right != null) preOrderTraversal(root.right);
@@ -52,10 +52,10 @@ class BinarySearchTree{
    
    /**
     * This method prints the values contained in the binary serach tree, starting from the given node, in an in-order sequence.
-    * @param root The starting root in the tree
+    * @param root The given node from previous method call
     */
    public void inOrderTraversal(Node root){
-      //implement me
+      if (root == null) return;
       if (root.left != null) inOrderTraversal(root.left);
       System.out.print(root.value + " ");
       if (root.right != null) inOrderTraversal(root.right);
@@ -63,11 +63,15 @@ class BinarySearchTree{
    
    
    
-   /*
-   post-order traversal
-   */
+   /**
+    * This method prints the values contained in the binary serach tree, starting from the given node, in post-order sequence.
+    * @param root The given node from previous method call
+    */
    public void postOrderTraversal(Node root){
-      //implement me
+      if (root == null) return;
+      if (root.left != null) postOrderTraversal(root.left);
+      if (root.right != null) postOrderTraversal(root.right);
+      System.out.print(root.value + " ");
    }
    
    
