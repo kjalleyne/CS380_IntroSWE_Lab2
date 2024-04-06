@@ -129,7 +129,7 @@ class BinarySearchTree{
    /**
     * This method recursively searches the BST for the minimum value
     * @param root The node given in the previous method call
-    * @return the minimum value in the BST
+    * @return The minimum value in the BST
     */
    public int getMin(Node root){
 
@@ -145,12 +145,20 @@ class BinarySearchTree{
   
   
   
-   /*
-   a method to find the node in the tree
-   with a largest key
-   */
+   /**
+    * This method recursively searches the BST for the maximum value
+    * @param root The node given in the previous method call
+    * @return The maximum value in the BST
+    */
    public int getMax(Node root){
-	  //implement me
+
+      int max;
+
+      if (root == null) max = Integer.MIN_VALUE;
+      else if (root.right != null) max = getMax(root.right);
+      else max = root.value;
+
+      return max;
    }
    
    
