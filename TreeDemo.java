@@ -81,8 +81,43 @@ class BinarySearchTree{
    with a specific value
    */
    public boolean find(Node root, int key){
-	  //implement me
-      return false;           
+
+      if (root == null) return false; // If the given node is null then return false
+
+      if (root.value == key) return true; // if the value of the given node is equal to the given key value, then return true
+
+      // This block executes if the given node value is less than the given key value
+      if (root.value < key) {
+
+         /* 
+          * If the right node exists, then recursively call this function with that node and the given key value.
+          * Otherwise, return false.
+          */
+         if (root.right != null) {
+            find(root.right, key);
+         }
+         else {
+            return false;
+         }
+      }
+
+      // This block executes if the given node value is greater than the given key value
+      else {
+
+         /* 
+          * If the left node exists, then recursively call this function with that node and the given key value.
+          * Otherwise, return false.
+          */
+         if (root.left != null) {
+            find(root.left, key);
+         }
+         else {
+            return false;
+         }
+      }
+
+      // Default return statement
+      return false;     
    }
    
    
