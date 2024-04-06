@@ -18,21 +18,26 @@ class BinarySearchTree{
    /*
    recursive insert method
    */
-   public Node insert(Node root, int value){
+   public Node insert(Node node, int value){
       //base case
-      if(root == null){
-         root = new Node(value);
-         return root;
+      if(this.root == null) {
+         this.root = new Node(value);
+         return this.root;
+      }
+
+      if (node == null) {
+         node = new Node(value);
+         return node;
       }
       
       //recursive step
-      if(value < root.value){
-         root.left = insert(root.left, value); 
+      if(value < node.value){
+         node.left = insert(node.left, value); 
       }else{
-         root.right = insert(root.right, value);
+         node.right = insert(node.right, value);
       }
       
-      return root;
+      return node;
    }
    
    
@@ -203,18 +208,38 @@ class BinarySearchTree{
 
 public class TreeDemo{
    public static void main(String[] args){
+
       BinarySearchTree t1  = new BinarySearchTree();
-      t1.insert(24);
-      t1.insert(80);
-      t1.insert(18);
-      t1.insert(9);
-      t1.insert(90);
-      t1.insert(22);
-            
-      System.out.print("in-order :   ");
+      t1.insert(t1.root, 24);
+      t1.insert(t1.root, 80);
+      t1.insert(t1.root, 18);
+      t1.insert(t1.root, 9);
+      t1.insert(t1.root, 90);
+      t1.insert(t1.root, 22);
+
+      System.out.print("pre-order : ");
+      t1.preOrderTraversal(t1.root);
+      System.out.println();
+
+      System.out.print("in-order : ");
       t1.inOrderTraversal(t1.root);
       System.out.println();
-           
+
+      System.out.print("post-order : ");
+      t1.postOrderTraversal(t1.root);
+      System.out.println();
+
+      System.out.print("The number 22 is in the tree: " + t1.find(t1.root, 22));
+      System.out.println();
+
+      System.out.print("The number 100 is in the tree: " + t1.find(t1.root, 100));
+      System.out.println();
+
+      System.out.print("Minimum value: " + t1.getMin(t1.root));
+      System.out.println();
+
+      System.out.print("Maximum value: " + t1.getMax(t1.root));
+      System.out.println();
       
    }  
 }
