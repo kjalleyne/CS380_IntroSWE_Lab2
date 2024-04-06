@@ -37,11 +37,15 @@ class BinarySearchTree{
    
    
    
-   /*
-   pre-order traversal
-   */
+   /**
+    * This method prints the values contained in the binary serach tree, starting from the given node, in a pre-order sequence.
+    * @param root The starting root in the tree.
+    */
    public void preOrderTraversal(Node root){
       //implement me
+      System.out.print(root.value + " ");
+      if (root.left != null) preOrderTraversal(root.left);
+      if (root.right != null) preOrderTraversal(root.right);
    }
 
    
