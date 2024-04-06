@@ -39,7 +39,7 @@ class BinarySearchTree{
    
    /**
     * This method prints the values contained in the binary serach tree, starting from the given node, in a pre-order sequence.
-    * @param root The given node from previous method call
+    * @param root The given node from previous method call.
     */
    public void preOrderTraversal(Node root){
       if (root == null) return;
@@ -52,7 +52,7 @@ class BinarySearchTree{
    
    /**
     * This method prints the values contained in the binary serach tree, starting from the given node, in an in-order sequence.
-    * @param root The given node from previous method call
+    * @param root The given node from previous method call.
     */
    public void inOrderTraversal(Node root){
       if (root == null) return;
@@ -65,7 +65,7 @@ class BinarySearchTree{
    
    /**
     * This method prints the values contained in the binary serach tree, starting from the given node, in post-order sequence.
-    * @param root The given node from previous method call
+    * @param root The given node from previous method call.
     */
    public void postOrderTraversal(Node root){
       if (root == null) return;
@@ -76,28 +76,32 @@ class BinarySearchTree{
    
    
    
-   /*
-   a method to find the node in the tree
-   with a specific value
-   */
+   /**
+    * This method recursively searches the BST for the given key value, starting from the given root node.
+    * @param root The given node from the previously method call.
+    * @param key The integer value to be found.
+    * @return True if the key value is found and false otherwise.
+    */
    public boolean find(Node root, int key){
 
-      if (root == null) return false; // If the given node is null then return false
+      boolean flag; // declare boolean flag
 
-      if (root.value == key) return true; // if the value of the given node is equal to the given key value, then return true
+      if (root == null) flag = false; // If the given node is null then set flag to false
+
+      else if (root.value == key) flag = true; // if the value of the given node is equal to the given key value, then set flag to true
 
       // This block executes if the given node value is less than the given key value
-      if (root.value < key) {
+      else if (root.value < key) {
 
          /* 
           * If the right node exists, then recursively call this function with that node and the given key value.
-          * Otherwise, return false.
+          * Otherwise, set flag to false.
           */
          if (root.right != null) {
-            find(root.right, key);
+            flag = find(root.right, key);
          }
          else {
-            return false;
+            flag = false;
          }
       }
 
@@ -106,28 +110,37 @@ class BinarySearchTree{
 
          /* 
           * If the left node exists, then recursively call this function with that node and the given key value.
-          * Otherwise, return false.
+          * Otherwise, set flag to false.
           */
          if (root.left != null) {
-            find(root.left, key);
+            flag = find(root.left, key);
          }
          else {
-            return false;
+            flag = false;
          }
       }
 
-      // Default return statement
-      return false;     
+      // Return flag
+      return flag;
    }
    
    
    
-   /*
-   a method to find the node in the tree
-   with a smallest key
-   */
+   /**
+    * This method recursively searches the BST for the minimum value
+    * @param root The node given in the previous method call
+    * @return the minimum value in the BST
+    */
    public int getMin(Node root){
-      //implement me
+
+      int min;
+
+      if (root == null) min = Integer.MAX_VALUE;
+      else if (root.left != null) min = getMin(root.left);
+      else min = root.value;
+
+      return min;
+
    }
   
   
