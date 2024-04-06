@@ -20,9 +20,9 @@ class BinarySearchTree{
    */
    public Node insert(Node node, int value){
       //base case
-      if(this.root == null) {
-         this.root = new Node(value);
-         return this.root;
+      if(root == null) {
+         root = new Node(value);
+         return root;
       }
 
       if (node == null) {
