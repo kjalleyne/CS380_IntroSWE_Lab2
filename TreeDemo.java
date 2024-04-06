@@ -50,11 +50,15 @@ class BinarySearchTree{
 
    
    
-   /*
-   in-order traversal
-   */
+   /**
+    * This method prints the values contained in the binary serach tree, starting from the given node, in an in-order sequence.
+    * @param root The starting root in the tree
+    */
    public void inOrderTraversal(Node root){
       //implement me
+      if (root.left != null) inOrderTraversal(root.left);
+      System.out.print(root.value + " ");
+      if (root.right != null) inOrderTraversal(root.right);
    }
    
    
